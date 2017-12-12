@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pesquisas</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Finalizada</th>
+      <th></th>
+      <th>Média</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avaliations.each do |avaliation| %>
+        <tr>
+        <td><%= avaliation.description %></td>
+        <td><%= avaliation.finished %></td>
+        <td><%= link_to 'Show', avaliation %></td>
+        <td><%= avaliation.average %></td>
+        <td><%= link_to 'Enviar pesquisa', send_email_avaliations_path(:id => avaliation.id),method: :put if avaliation.finished == false %></td>
+        <td><%= link_to 'Finalizar pesquisa', send_emails_answers_path, method: :put if avaliation.finished == false %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Criar uma nova avaliação', new_avaliation_path %>

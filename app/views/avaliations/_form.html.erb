@@ -1,0 +1,21 @@
+<%= form_for(avaliation) do |f| %>
+  <% if avaliation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(avaliation.errors.count, "error") %> prohibited this avaliation from being saved:</h2>
+
+      <ul>
+      <% avaliation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
