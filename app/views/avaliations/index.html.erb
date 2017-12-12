@@ -21,7 +21,7 @@
         <td><%= avaliation.finished %></td>
         <td><%= link_to 'Show', avaliation %></td>
         <td><%= avaliation.average %></td>
-        <td><%= link_to 'Enviar pesquisa', send_email_avaliations_path(:id => avaliation.id),method: :put if avaliation.finished == false %></td>
+        <td><%= link_to 'Enviar pesquisa', send_email_avaliations_path(:id => avaliation.id),method: :put %></td>
         <td><%= link_to 'Finalizar pesquisa', send_emails_answers_path, method: :put if avaliation.finished == false %></td>
       </tr>
     <% end %>
